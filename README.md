@@ -1,6 +1,8 @@
 # Wrapper *for Craft CMS*
 Wrap or unwrap data around an array of HTML markup tags.
 
+Why is this needed? Well, each time you wrap data you won't have to check content actually exists first. This will avoid accidentally generating html tags without content. Keeping your code valid and avoid ugly "is defined and is not empty" checks all the time.
+
 ##Wrapper
 
 ####Settings:
