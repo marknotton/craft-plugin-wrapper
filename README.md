@@ -4,11 +4,11 @@ Wrap or unwrap data around an array of HTML markup tags.
 ##Wrapper
 
 ####Settings:
-| Option | Type | Description |
--- | -- | --
-| Tags | String | A single string where multiple tags are comma-delimited |
-| Class | String | Class name/s that get applied to the first tag |
-| Data | Array | A single array of two strings will make up a data-attribute on the first tag |
+| Option | Type   | Description |
+| ------ | ------ | ----------- |
+| Tags   | String | A single string where multiple tags are comma-delimited |
+| Class  | String | Class name/s that get applied to the first tag |
+| Data   | Array  | A single array of two strings will make up a data-attribute on the first tag |
 
 ####Basic Usage:
 ```
@@ -16,8 +16,8 @@ Wrap or unwrap data around an array of HTML markup tags.
 ```
 
 You can also use the following common HTML tag shortcuts :
-| h1 | h2 | h3 | h4 | h5 | h6 | p | span | ol | ul | li | div | section |
--- | -- | -- | -- | -- | -- | - | ---- | -- | -- | -- | --- | -------
+** h1 h2 h3 h4 h5 h6 p span ol ul li div section **
+
 
 Which means you could also do this:
 ```
@@ -70,8 +70,8 @@ Some singletons will fallback and use the content as part of it's formatting.
  <source src='http://www.someurl.uk'>
 ```
 All other singletons will simply be ignored:
-| area | br | col | command | hr | input | meta | param |
--- | -- | -- | -- | -- | -- | -- | -- | -- | --
+** area br col command hr input meta param **
+
 
 
 ----
