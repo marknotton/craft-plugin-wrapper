@@ -46,7 +46,7 @@ Both methods output the same thing:
 ```
 ---
 
-####Singletons:
+###Singletons:
 Some singletons will fallback and use the content as part of it's formatting.
 
 ```
