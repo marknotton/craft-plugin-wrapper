@@ -10,13 +10,13 @@ Wrap or unwrap data around an array of HTML markup tags.
 | Class  | String | Class name/s that get applied to the first tag |
 | Data   | Array  | A single array of two strings will make up a data-attribute on the first tag |
 
-####Basic Usage:
+###Basic Usage:
 ```
 {{ entry.title|wrap('h1') }}
 ```
 
 You can also use the following common HTML tag shortcuts :
-** h1 h2 h3 h4 h5 h6 p span ol ul li div section **
+**h1 h2 h3 h4 h5 h6 p span ol ul li div section**
 
 
 Which means you could also do this:
@@ -24,18 +24,18 @@ Which means you could also do this:
 {{ entry.title|h1 }}
 ```
 
-####Basic Output:
+###Basic Output:
 Both methods output the same thing:
 
 ```
 <h1>Entry Title</h1>
 ```
 ---
-####Advance Usage:
+###Advance Usage:
 ```
 {{ '/assets/images/logo.png'|wrap('ul li img cite', 'test', ['foo', 'bar']) }}
 ```
-####Advance Output:
+###Advance Output:
 ```
 <ul class="test" data-foo="bar">
   <li>
@@ -70,7 +70,7 @@ Some singletons will fallback and use the content as part of it's formatting.
  <source src='http://www.someurl.uk'>
 ```
 All other singletons will simply be ignored:
-** area br col command hr input meta param **
+**area br col command hr input meta param**
 
 
 
@@ -79,11 +79,11 @@ All other singletons will simply be ignored:
 ##Unwrapper
 This filter removes **all** tags, except for tags passed into the filter.
 
-####Basic Usage:
+###Basic Usage:
 ```
 {{ "<h1><span><cite> Page Title </cite></span></h1>"|unwrap('h1') }}
 ```
-####Basic Output:
+###Basic Output:
 **Before:**
 ```
 <h1><span><cite> Page Title </cite></span></h1>
