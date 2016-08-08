@@ -6,7 +6,7 @@ Wrap or unwrap data around an array of HTML markup tags.
 ####Settings:
 | Option | Type   | Description |
 | ------ | ------ | ----------- |
-| Tags   | String | A single string where multiple tags are comma-delimited |
+| Tags   | String | A single string where multiple tags are space-delimited |
 | Class  | String | Class name/s that get applied to the first tag |
 | Data   | Array  | A single array of two strings will make up a data-attribute on the first tag |
 
