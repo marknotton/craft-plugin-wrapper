@@ -32,21 +32,6 @@ class wrapper extends \Twig_Extension {
 
   private $singletons = array('area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input', 'link', 'meta','param', 'source');
 
-  // Usage:  {{ "foobar"|wrap('h1') }}
-  // Output: <h1>foobar</h1>
-
-  // Usage:  {{ "foobar"|wrap('h1', 'className', ['foo', 'bar']) }}
-  // Output: <h1 class="className" data-foo="bar">foobar</h1>
-
-  // Usage:  {{ 'http://lorempixel.com/g/400/200'|wrap('ul li img cite', 'test', ['foo', 'bar']) }}
-  // Output:
-  // <ul class="test" data-foo="bar">
-  //   <li>
-  //     <img src="http://lorempixel.com/g/400/200" alt="http://lorempixel.com/g/400/200">
-  //     <cite>http://lorempixel.com/g/400/200</cite>
-  //   </li>
-  // </ul>
-
   public function wrapFilter() {
 
     // Atleast one symbol sting arugment should be passed
@@ -130,9 +115,6 @@ class wrapper extends \Twig_Extension {
             break;
             case "img":
               $output = "<img src='".$html."' alt='".$html."'>";
-            break;
-            case "a":
-              $output = "<a href='".$html."''>";
             break;
             case "embed":
               $output = "<embed src='".$html."'>";
