@@ -34,11 +34,11 @@ Both methods output the same thing:
 <h1>Entry Title</h1>
 ```
 
-####Advance Usage:
+####Advance Usage
 ```
 {{ '/assets/images/logo.png'|wrap('ul li img cite', 'test', ['foo', 'bar']) }}
 ```
-####Advance Output:
+####Advance Output
 ```
 <ul class="test" data-foo="bar">
   <li>
@@ -49,7 +49,7 @@ Both methods output the same thing:
 ```
 ---
 
-####Singletons:
+####Singletons
 Some singletons will fallback and use the content as part of it's formatting.
 
 ```
@@ -80,16 +80,16 @@ All other singletons will simply be ignored:
 ##Unwrapper
 This filter removes **all** tags, except for tags passed into the filter.
 
-####Basic Usage:
+####Basic Usage
 ```
 {{ "<h1><span><cite> Page Title </cite></span></h1>"|unwrap('h1') }}
 ```
-####Basic Output:
-#####Before
+####Basic Output
+#####Before:
 ```html
 <h1><span><cite> Page Title </cite></span></h1>
 ```
-#####After
+#####After:
 ```html
 <h1>Page Title</h1>
 ```
