@@ -10,6 +10,14 @@ class WrapperPlugin extends BasePlugin {
     return '0.1';
   }
 
+  public function getSchemaVersion() {
+    return '0.1';
+  }
+
+  public function getDescription() {
+    return 'Wrap or unwrap data around an array of HTML markup tags.';
+  }
+
   public function getDeveloper() {
     return 'Yello Studio';
   }
