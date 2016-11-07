@@ -4,7 +4,7 @@ namespace Craft;
 use Twig_Extension;
 use Twig_Filter_Method;
 
-class wrapper extends \Twig_Extension {
+class unwrapper extends \Twig_Extension {
 
   public function getName() {
     return Craft::t('Unwrapper');
