@@ -37,7 +37,9 @@ class WrapperPlugin extends BasePlugin {
   public function addTwigExtension() {
     Craft::import('plugins.wrapper.twigextensions.wrapper');
     Craft::import('plugins.wrapper.twigextensions.unwrapper');
-    return new wrapper();
-    return new unwrapper();
+    return array(
+      new wrapper(),
+      new unwrapper()
+    );
   }
 }
