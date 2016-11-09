@@ -81,6 +81,15 @@ Some singletons will fallback and use the content as part of it's formatting.
 All other singletons will simply be ignored:
 **area br col command hr input meta param**
 
+#### img
+
+The shorthand img filter shifts the parameters along one place, allowing for the and 'alt' tag title to be entered instead.
+
+```
+ {{ '/assets/images/logo.jpg'|img('Company Logo') }}
+ <img src='/assets/images/logo.jpg' alt='Company Logo'>
+```
+
 ----
 
 ##Unwrapper

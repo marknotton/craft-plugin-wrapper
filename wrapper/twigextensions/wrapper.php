@@ -26,7 +26,8 @@ class wrapper extends \Twig_Extension {
       'ul'     => new Twig_Filter_Method( $this, 'ulFilter',     array('is_safe' => array('html')) ),
       'li'     => new Twig_Filter_Method( $this, 'liFilter',     array('is_safe' => array('html')) ),
       'div'    => new Twig_Filter_Method( $this, 'divFilter',    array('is_safe' => array('html')) ),
-      'section'=> new Twig_Filter_Method( $this, 'sectionFilter',array('is_safe' => array('html')) )
+      'section'=> new Twig_Filter_Method( $this, 'sectionFilter',array('is_safe' => array('html')) ),
+      'img'    => new Twig_Filter_Method( $this, 'imgFilter',    array('is_safe' => array('html')) )
     );
   }
 
@@ -55,6 +56,7 @@ class wrapper extends \Twig_Extension {
     $class    = null;
     $data     = null;
     $count    = null;
+    $title    = null;
     $first    = false;
     $openers  = array();
     $closers  = array();
@@ -83,10 +85,21 @@ class wrapper extends \Twig_Extension {
 
         // Element and class
         if (is_string($setting)) {
-          if ( is_null($elements) ) {
-            $elements = $setting;
-          } else if ( is_null($class) ) {
-            $class = $setting;
+
+          if ( $elements === 'img' ) {
+            if ( is_null($elements) ) {
+              $elements = $setting;
+            } else if ( is_null($title) ) {
+              $title = $setting;
+            } else if ( is_null($title) ) {
+              $class = $setting;
+            }
+          } else {
+            if ( is_null($elements) ) {
+              $elements = $setting;
+            } else if ( is_null($class) ) {
+              $class = $setting;
+            }
           }
         }
 
@@ -114,7 +127,8 @@ class wrapper extends \Twig_Extension {
               $output = "<base href='".$html."'>";
             break;
             case "img":
-              $output = "<img src='".$html."' alt='".$html."'>";
+              $title = is_null($title) ? $html : $title;
+              $output = "<img src='".$html."' alt='".$title."'>";
             break;
             case "embed":
               $output = "<embed src='".$html."'>";
@@ -169,68 +183,73 @@ class wrapper extends \Twig_Extension {
 
   // Shorthand filters
   // {{ entry.title|h1 }}
-  public function h1Filter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'h1', $selector, $data);
+  public function h1Filter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'h1', $class, $data);
   }
 
   // {{ entry.title|h2 }}
-  public function h2Filter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'h2', $selector, $data);
+  public function h2Filter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'h2', $class, $data);
   }
 
   // {{ entry.title|h3 }}
-  public function h3Filter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'h3', $selector, $data);
+  public function h3Filter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'h3', $class, $data);
   }
 
   // {{ entry.title|h4 }}
-  public function h4Filter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'h4', $selector, $data);
+  public function h4Filter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'h4', $class, $data);
   }
 
   // {{ entry.title|h5 }}
-  public function h5Filter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'h5', $selector, $data);
+  public function h5Filter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'h5', $class, $data);
   }
 
   // {{ entry.title|h6 }}
-  public function h6Filter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'h6', $selector, $data);
+  public function h6Filter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'h6', $class, $data);
   }
 
   // {{ entry.title|p }}
-  public function pFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'p', $selector, $data);
+  public function pFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'p', $class, $data);
   }
 
   // {{ entry.title|span }}
-  public function spanFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'span', $selector, $data);
+  public function spanFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'span', $class, $data);
   }
 
   // {{ entry.title|ol }}
-  public function olFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'ol', $selector, $data);
+  public function olFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'ol', $class, $data);
   }
 
   // {{ entry.title|ul }}
-  public function ulFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'ul', $selector, $data);
+  public function ulFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'ul', $class, $data);
   }
 
   // {{ entry.title|li }}
-  public function liFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'li', $selector, $data);
+  public function liFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'li', $class, $data);
   }
 
   // {{ entry.title|div }}
-  public function divFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'div', $selector, $data);
+  public function divFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'div', $class, $data);
   }
 
   // {{ entry.title|section }}
-  public function sectionFilter($html, $selector=null, $data=null) {
-    return $this->wrapFilter($html, 'section', $selector, $data);
+  public function sectionFilter($html, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'section', $class, $data);
+  }
+
+  // {{ entry.title|section }}
+  public function imgFilter($html, $title=null, $class=null, $data=null) {
+    return $this->wrapFilter($html, 'img', $class, $data, $title);
   }
 
 }
