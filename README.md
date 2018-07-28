@@ -2,25 +2,27 @@
 
 # Wrapper *for Craft CMS*
 
+> This plugin is no longer maintained. I'm committing to Craft 3 development only. Feel free to use the source code as you like. If you're looking for a Craft 3 version of this plugin, it's likely I've merged parts or all of this plugin into my [Helpers module.](https://github.com/marknotton/craft-module-helpers)
+
 Wrap or unwrap data around an array of HTML markup tags.
 
 Why is this needed? Well, each time you wrap data you won't have to check content actually exists first. This will avoid accidentally generating html tags without content. Keeping your code valid and avoid ugly "is defined and is not empty" checks all the time.
 
-##Table of Contents
+## Table of Contents
 
 - [Wrapper](#wrapper)
 - [Unwrapper](#unwrapper)
 
-##**Wrapper**
+## **Wrapper**
 
-####**Settings**
+#### **Settings**
 | Parameters       | Type   | Description |
 | ---------------- | ------ | ----------- |
 | Tags             | String | A single string where multiple tags are space-delimited |
 | Class *optional* | String | Class name/s that get applied to the first tag |
 | Data *optional*  | Array  | A single array of two strings will make up a data-attribute on the first tag |
 
-####Basic Usage
+#### Basic Usage
 ```
 {{ entry.title|wrap('h1') }}
 ```
@@ -33,18 +35,18 @@ Which means you could also do this:
 {{ entry.title|h1 }}
 ```
 
-####Basic Output
+#### Basic Output
 Both methods output the same thing:
 
 ```
 <h1>Entry Title</h1>
 ```
 
-####Advance Usage
+#### Advance Usage
 ```
 {{ '/assets/images/logo.png'|wrap('ul li img cite', 'test', ['foo', 'bar']) }}
 ```
-####Advance Output
+#### Advance Output
 ```
 <ul class="test" data-foo="bar">
   <li>
@@ -55,7 +57,7 @@ Both methods output the same thing:
 ```
 ---
 
-####Singletons
+#### Singletons
 Some singletons will fallback and use the content as part of it's formatting.
 
 ```
@@ -92,19 +94,19 @@ The shorthand img filter shifts the parameters along one place, allowing for the
 
 ----
 
-##Unwrapper
+## Unwrapper
 This filter removes **all** tags, except for tags passed into the filter.
 
-####Basic Usage
+#### Basic Usage
 ```
 {{ "<h1><span><cite> Page Title </cite></span></h1>"|unwrap('h1') }}
 ```
-####Basic Output
-#####Before:
+#### Basic Output
+##### Before:
 ```html
 <h1><span><cite> Page Title </cite></span></h1>
 ```
-#####After:
+##### After:
 ```html
 <h1>Page Title</h1>
 ```
